@@ -16,7 +16,6 @@ public class EnvironmentSpawner : MonoBehaviour
     [SerializeField] private List<Floor> floorsPool = new ();
     [SerializeField] private List<Background> backgroundsPool = new ();
     [SerializeField] private List<Enemy> enemiesPool = new ();
-    [SerializeField] private List<FlyingEnemy> flyingEnemiesPool = new ();
     [SerializeField] private List<GameObject> runesPool = new ();
     [Space]
     [SerializeField] private float timeToSpawnRune = 15f;

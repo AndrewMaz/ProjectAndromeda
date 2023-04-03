@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5E417B24-DC00-77A9-7FA8-48AA02AA9CE6}</ProjectGuid>
+    <ProjectGuid>{E90A8771-9AAC-6785-CF64-1CA855EE8872}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>AimingRig</AssemblyName>
@@ -349,6 +349,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="HeroEditor.Common">
+      <HintPath>Assets\HeroEditor\Common\Scripts\EditorScripts\HeroEditor.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HeroEditor.Common.Editor">
+      <HintPath>Assets\HeroEditor\Common\Scripts\Editor\HeroEditor.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>D:\Unity pr\2021.3.16f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F69DD169-ACBF-265F-8619-2919043D2AEE}</ProjectGuid>
+    <ProjectGuid>{0322EF86-5DFC-0874-0218-3FA9573EA9D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -56,10 +56,10 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HeroEditor\Common\Scripts\Editor\SpriteCollectionEditor.cs" />
-    <Compile Include="Assets\HeroEditor\Common\Scripts\Editor\FirearmCollectionEditor.cs" />
     <Compile Include="Assets\HeroEditor\Common\Scripts\Editor\IconCollectionEditor.cs" />
     <Compile Include="Assets\HeroEditor\Common\Scripts\Editor\LayerManagerEditor.cs" />
+    <Compile Include="Assets\HeroEditor\Common\Scripts\Editor\FirearmCollectionEditor.cs" />
+    <Compile Include="Assets\HeroEditor\Common\Scripts\Editor\SpriteCollectionEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HeroEditor\Common\Scripts\Editor\HeroEditor.Common.Editor.dll" />
@@ -326,9 +326,6 @@
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="HeroEditor.Common">
-      <HintPath>Assets\HeroEditor\Common\Scripts\EditorScripts\HeroEditor.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -365,11 +362,14 @@
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="HeroEditor.Common.Editor">
-      <HintPath>Assets\HeroEditor\Common\Scripts\Editor\HeroEditor.Common.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="HeroEditor.Common">
+      <HintPath>Assets\HeroEditor\Common\Scripts\EditorScripts\HeroEditor.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HeroEditor.Common.Editor">
+      <HintPath>Assets\HeroEditor\Common\Scripts\Editor\HeroEditor.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -902,11 +902,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{0AD5F46F-DCF3-3FC8-19C7-9881A28D7327}</Project>
+      <Project>{2F03954C-91AD-6F23-C5AB-AAA2FD0EF2BA}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="AimingRig.csproj">
-      <Project>{5E417B24-DC00-77A9-7FA8-48AA02AA9CE6}</Project>
+      <Project>{E90A8771-9AAC-6785-CF64-1CA855EE8872}</Project>
       <Name>AimingRig</Name>
     </ProjectReference>
   </ItemGroup>
