@@ -8,12 +8,12 @@ public class Floor : MonoBehaviour, ITeleportable
 {
     public float Size { get; private set; }
 
-    BoxCollider2D boxCollider;
+    BoxCollider2D boxColliderwqqwq;
 
     private void Start()
     {
-        boxCollider = gameObject.GetComponent<BoxCollider2D>();
-        Size = boxCollider.size.x;
+        boxColliderwqqwq = gameObject.GetComponent<BoxCollider2D>();
+        Size = boxColliderwqqwq.size.x;
     }
 
     public void Teleport()
