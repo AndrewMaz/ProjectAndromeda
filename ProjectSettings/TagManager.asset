@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Weapon
+  - Ground
+  - Floor
+  - FastBG
+  - MediumBG
+  - SlowBG
+  - GroundEnemy
+  - FlyingEnemy
+  - Arrow
+  - MediumSnow
+  - MediumDay
+  - SlowDay
+  - SlowSnow
+  - FastDay
+  - FastSnow
+  - FlyingEnemyDay
+  - FlyingEnemySnow
+  - Rune
+  - GameOver
+  - Projectile
+  - FloorDay1
+  - FloorDay2
+  - FloorDay3
+  - FloorDay4
+  - FloorSnow1
+  - FloorSnow2
+  - FloorSnow3
+  - FloorSnow4
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Background
+  - Teleportator
+  - Projectile
+  - Enemy
+  - Floor
+  - Rune
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
