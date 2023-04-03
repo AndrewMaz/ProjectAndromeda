@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0AD5F46F-DCF3-3FC8-19C7-9881A28D7327}</ProjectGuid>
+    <ProjectGuid>{2F03954C-91AD-6F23-C5AB-AAA2FD0EF2BA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -122,6 +122,7 @@
     <None Include="Assets\Samples\Cinemachine\2.8.9\Cinemachine Example Scenes\Scenes\FadeOutNearbyObjects\FadeOut.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Samples\Cinemachine\2.8.9\Cinemachine Example Scenes\Scenes\Anywhere Door\ScreenCutoutShader.shader" />
@@ -913,7 +914,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AimingRig.csproj">
-      <Project>{5E417B24-DC00-77A9-7FA8-48AA02AA9CE6}</Project>
+      <Project>{E90A8771-9AAC-6785-CF64-1CA855EE8872}</Project>
       <Name>AimingRig</Name>
     </ProjectReference>
   </ItemGroup>
