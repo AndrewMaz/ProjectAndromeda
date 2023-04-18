@@ -32,6 +32,7 @@ TagManager:
   - FloorSnow2
   - FloorSnow3
   - FloorSnow4
+  - HealthPack
   layers:
   - Default
   - TransparentFX
@@ -46,7 +47,7 @@ TagManager:
   - Floor
   - Rune
   - Weapon
-  - 
+  - Platform
   - 
   - 
   - 

@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Vector2 mass;
     [SerializeField] private Movement movement;
+    [SerializeField] private Animator animator;
 
     void Update()
     {
@@ -23,7 +24,17 @@ public class Arrow : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
             enemy.Die();
+            /*gameObject.transform.SetParent(enemy.transform);
+            rb.bodyType = RigidbodyType2D.Kinematic;*/
         }
+    }
+
+    public void Deflect()
+    {
+        rb.velocity = new Vector2(-2, 1);
+        movement.enabled = true;
+
+        animator.SetTrigger("Deflected");
     }
 
     private void OnDrawGizmos()

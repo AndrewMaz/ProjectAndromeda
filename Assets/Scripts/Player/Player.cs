@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] float maxHealth = 100f;
     [SerializeField] float deadPositionY = -2f;
     [SerializeField] Transform arrowPosition;
+    [SerializeField] Button resumeButton;
+    [SerializeField] GameObject deathText;
 
     Rigidbody2D rb;
     Animator animator;
@@ -20,6 +22,8 @@ public class Player : MonoBehaviour
     Vector3 startPosition;
 
     float timer = 0f, currentHealth;
+
+    public bool UIPressed { get; private set; }
 
     void Start()
     {
@@ -51,95 +55,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        /*if (Input.touchCount == 1 && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-        {
-            Touch touch = Input.GetTouch(0);
-
-            switch(touch.phase)
-            {
-                case TouchPhase.Began:
-                    animator.SetTrigger("attack");
-                    break;
-
-                case TouchPhase.Stationary:
-                    //Get the Screen positions of the object
-                    Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
-                    //Get the Screen position of the mouse
-                    Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-                    //Get the angle between the points
-                    float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-
-                    if (angle <= 0f)
-                    {
-                        body.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Max(-90, angle)));
-                    }
-                    else
-                    {
-                        body.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Min(90, angle)));
-                    }
-
-                    animator.SetBool("isStance", true);
-                    break;
-
-                case TouchPhase.Moved:
-                    //Get the Screen positions of the object
-                    positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
-                    //Get the Screen position of the mouse
-                    mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-                    //Get the angle between the points
-                    angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-
-                    if (angle <= 0f)
-                    {
-                        body.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Max(-90, angle)));
-                    }
-                    else
-                    {
-                        body.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Min(90, angle)));
-                    }
-
-                    animator.SetBool("isStance", true);
-                    break;
-
-                case TouchPhase.Ended:
-                    animator.SetBool("isStance", false);
-                    break;
-            }
-        }
-
-#if UNITY_EDITOR_WIN
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            animator.SetTrigger("attack");
-        }
-        if (Input.GetMouseButton(1))
-        {
-            //Get the Screen positions of the object
-            Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
-            //Get the Screen position of the mouse
-            Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            //Get the angle between the points
-            float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-
-            if (angle <= 0f)
-            {
-                body.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Max(-90, angle)));
-            }
-            else
-            {
-                body.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Min(90, angle)));
-            }
-
-            animator.SetBool("isStance", true);
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-
-            animator.SetBool("isStance", false);
-        }
-
-#endif*/
+        UIPressed = false;
     }
 
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
@@ -154,6 +70,7 @@ public class Player : MonoBehaviour
 
     public void Jump() 
     {
+        UIPressed = true;
         if (rb.velocity != Vector2.zero) return;
 
         rb.velocity = new Vector2(0, jumpForce);
@@ -182,6 +99,7 @@ public class Player : MonoBehaviour
 
     public void Release(Vector2 mouseOnScreen, GameObject arrow, float speed)
     {
+        arrow.SetActive(true);
         arrow.transform.SetPositionAndRotation(arrowPosition.position, arrowPosition.rotation);
         arrow.TryGetComponent(out Rigidbody2D rb);
         arrow.TryGetComponent(out Movement movement);
@@ -205,7 +123,8 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth < 0f)
         {
-            //gameOverCanvas.SetActive(true);
+            resumeButton.interactable = false;
+            deathText.SetActive(true);
             animator.SetTrigger("die");
         }
         if(currentHealth > maxHealth)

@@ -27,9 +27,9 @@ public class MeleeAttack : MonoBehaviour
 
             timer = damageCooldown;
         }
-/*        else if (collision.transform.parent.TryGetComponent(out Arrow arrow))
+        if (collision.gameObject.TryGetComponent(out Arrow arrow))
         {
             arrow.Deflect();
-        }*/
+        }
     }
 }

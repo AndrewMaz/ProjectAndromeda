@@ -330,7 +330,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -4834708719345325344}
   m_StateMachineBehaviours:
-  - {fileID: 8472651033896020432}
+  - {fileID: 8986936547555484992}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -443,7 +443,7 @@ AnimatorStateMachine:
     m_Position: {x: 360, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102128349919197752}
-    m_Position: {x: 180, y: -410, z: 0}
+    m_Position: {x: 220, y: -400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102814820157051496}
     m_Position: {x: -40, y: -340, z: 0}
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a8e693706e8954cbd223210a40e942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8472651033896020432
+--- !u!114 &8986936547555484992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

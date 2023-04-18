@@ -350,12 +350,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="HeroEditor.Common">
-      <HintPath>Assets\HeroEditor\Common\Scripts\EditorScripts\HeroEditor.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="HeroEditor.Common.Editor">
-      <HintPath>Assets\HeroEditor\Common\Scripts\Editor\HeroEditor.Common.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>D:\Unity pr\2021.3.16f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
     </Reference>

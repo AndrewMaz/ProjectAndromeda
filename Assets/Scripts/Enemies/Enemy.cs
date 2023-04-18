@@ -1,20 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 
 public class Enemy : MonoBehaviour, ITeleportable
 {
     [SerializeField] private Animator animator;
-    [SerializeField] float attackTime = 1f;
+    [SerializeField] private float attackTime = 1f;
 
     private float attackTimer;
 
-    Rigidbody2D rb;
-    Movement movement;
-    MovementY movementY;
+
+
+    public bool IsDead { get; private set; }
+
+    protected Rigidbody2D rb;
+    protected Movement movement;
+    protected MovementY movementY;
 
     public void Awake()
     {
@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour, ITeleportable
 
     public void OnEnable()
     {
+        IsDead = false;
+
         if (movementY != null)
         {
             movementY.enabled = true;
@@ -45,7 +47,6 @@ public class Enemy : MonoBehaviour, ITeleportable
     public virtual void Teleport()
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
-   
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,6 +59,8 @@ public class Enemy : MonoBehaviour, ITeleportable
 
     public virtual void Die()
     {
+        if (IsDead) return;
+
         rb.bodyType = RigidbodyType2D.Dynamic;
         animator.SetTrigger("takeDamage");
         movement.Speed = movement.DeadSpeed;
@@ -65,6 +68,8 @@ public class Enemy : MonoBehaviour, ITeleportable
         {
             movementY.enabled = false;
         }
+
+        IsDead = true;
     }
 
     public virtual void Attack()

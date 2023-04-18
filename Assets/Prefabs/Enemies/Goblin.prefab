@@ -191,7 +191,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3534308250222037242}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -217,8 +217,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000021862985, y: -0.05290208}
-  m_Size: {x: 0.15404372, y: 0.2758042}
+  m_Offset: {x: -0.000021862985, y: -0.040825654}
+  m_Size: {x: 0.15404372, y: 0.25165135}
   m_Direction: 0
 --- !u!114 &3944534730417261827
 MonoBehaviour:
@@ -234,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3534308250191005425}
   attackTime: 1
+  killCount: {fileID: 0}
+  missedKillCount: {fileID: 0}
 --- !u!114 &3944534730417261826
 MonoBehaviour:
   m_ObjectHideFlags: 0

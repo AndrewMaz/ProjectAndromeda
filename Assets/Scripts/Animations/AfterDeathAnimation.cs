@@ -25,10 +25,9 @@ public class AfterDeathAnimation : StateMachineBehaviour
         {
             animator.transform.parent.gameObject.SetActive(false);
         }
-        else if (animator.gameObject.CompareTag("Player"))
+        else if (animator.gameObject.transform.parent.TryGetComponent(out Player _))
         {
-            GameObject.FindGameObjectWithTag("GameOver").transform.GetChild(0).gameObject.SetActive(true);
-            Time.timeScale = 0f;
+            GameOverHandler.instance.Pause();
         }
         else
         {

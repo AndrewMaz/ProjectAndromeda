@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class FlyingEnemy : Enemy
 {
-    [SerializeField] float damage = 10f;
     [SerializeField] private Projectile projectile;
     [SerializeField] private float startHeight;
-    [SerializeField] private BoxCollider2D killColider;
 
     private new void OnEnable()
     {
@@ -41,15 +39,5 @@ public class FlyingEnemy : Enemy
         }
 
         base.Attack();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (killColider == null) return;
-
-        if (collision.gameObject.TryGetComponent(out Player player))
-        {
-            player.TakeDamage(damage);
-        }
     }
 }

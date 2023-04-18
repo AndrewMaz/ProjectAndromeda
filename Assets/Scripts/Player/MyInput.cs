@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MyInput : MonoBehaviour
 {
@@ -21,13 +22,13 @@ public class MyInput : MonoBehaviour
 
     private void Update()
     {
+        if (player.UIPressed) return;
+
         //Get the Screen positions of the object
         Vector2 positionOnScreen = camera.WorldToViewportPoint(player.transform.position);
         //Get the Screen position of the mouse
         Vector2 mouseOnScreen = (Vector2)camera.ScreenToViewportPoint(Input.mousePosition);
         //Get the angle between the points
-
-
 
         if (Input.touchCount == 1 && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
@@ -43,10 +44,15 @@ public class MyInput : MonoBehaviour
 
                 case TouchPhase.Moved:
                     player.Stance(positionOnScreen, mouseOnScreen);
+                    multiplierTimer += Time.deltaTime;
+                    if (multiplierTimer > 1f)
+                        multiplierTimer = 1f;
+                    speedMultiplier = Mathf.Lerp(minMultiplier, maxMultiplier, multiplierTimer);
                     break;
 
                 case TouchPhase.Ended:
-                    player.Release(mouseOnScreen, arrow, arrowSpeed * speedMultiplier);
+                    player.Release(camera.ScreenToWorldPoint(Input.mousePosition), arrow, arrowSpeed * speedMultiplier);
+                    multiplierTimer = 0f;
                     break;
             }
         }

@@ -1,8 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;  
 
 public class EnvironmentSpawner : MonoBehaviour
@@ -19,15 +17,22 @@ public class EnvironmentSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> runesPool = new ();
     [Space]
     [SerializeField] private float timeToSpawnRune = 15f;
+    [SerializeField] Material material;
 
     private Floor lastFloor;
 
-    private float backgroundTimer, runeTimer;
+    private int killCounter;
 
-    public float NewTimerValue => Random.Range(0.5f, 1.5f);
+    private float backgroundTimer, runeTimer, missedKillCounter;
+
+    [Range(0f, 2f)]
+    private float materialValue = 0f;
+
+    public float NewTimerValue => UnityEngine.Random.Range(0.5f, 1.5f);
 
     private void Awake()
     {
+        material.SetFloat("_value", 0f);
         floorsPool.AddRange(floors);
         enemiesPool.AddRange(enemies);
         lastFloor = floors.LastOrDefault();
@@ -48,8 +53,8 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public void FixedUpdate()
     {
-        int randomBackground = Random.Range(0, backgroundsPool.Count);
-        int randomRune = Random.Range(0, runesPool.Count);
+        int randomBackground = UnityEngine.Random.Range(0, backgroundsPool.Count);
+        int randomRune = UnityEngine.Random.Range(0, runesPool.Count);
         backgroundTimer -= Time.fixedDeltaTime;
         runeTimer -= Time.fixedDeltaTime;
 
@@ -86,6 +91,8 @@ public class EnvironmentSpawner : MonoBehaviour
             floor.gameObject.SetActive(false);
             Spawner(floor.gameObject, lastFloor.transform.localPosition.x + floor.Size);
             lastFloor = floor;
+            materialValue += 0.05f;
+            material.SetFloat("_value", materialValue);
         }
         else if (gameObject.TryGetComponent(out Background background))
         {
@@ -93,8 +100,18 @@ public class EnvironmentSpawner : MonoBehaviour
         }
         else if (gameObject.TryGetComponent(out Enemy enemy)) 
         {
+            if (!enemy.IsDead)
+            {
+                missedKillCounter++;
+                GameOverHandler.instance.UpdateUI(missedKillCounter);
+            }
+            else
+            {
+                killCounter++;
+                GameOverHandler.instance.UpdateUI(killCounter);
+            }
             enemy.gameObject.SetActive(false);
-            Spawner(enemiesPool[Random.Range(0, enemiesPool.Count)].gameObject, transform.localPosition.x);
+            Spawner(enemiesPool[UnityEngine.Random.Range(0, enemiesPool.Count)].gameObject, transform.localPosition.x);
         }
         else if (gameObject.TryGetComponent(out Rune rune))
         {

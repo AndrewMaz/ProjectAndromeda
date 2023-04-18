@@ -8,7 +8,7 @@ public class TripleShotRune : Rune
     {
         if (collision.TryGetComponent(out Player _))
         {
-            collision.GetComponentInChildren<ArrowController>().IsTripple = true;
+            //collision.GetComponentInChildren<ArrowController>().IsTripple = true;
             gameObject.SetActive(false);
         }
     }
