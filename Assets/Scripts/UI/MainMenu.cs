@@ -7,11 +7,15 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Image backGround;
-    [SerializeField] private Sprite secondImage;
+    [SerializeField] private Image vibrationImage;
     [SerializeField] private float timeToChange;
     [SerializeField] private Animator animator;
+    [SerializeField] private Sprite secondImage;
+    [SerializeField] private Sprite vibrationOff;
+    [SerializeField] private Sprite vibrationOn;
 
     private float changeTime;
+    private bool isVibrationOff = true;
 
     private void Awake()
     {
@@ -38,5 +42,24 @@ public class MainMenu : MonoBehaviour
     public void GameStart()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void Options()
+    {
+        animator.SetTrigger("options");
+    }
+
+    public void Vibration()
+    {
+        if (isVibrationOff)
+        {
+            vibrationImage.sprite = vibrationOn;
+            isVibrationOff = false;
+        }
+        else
+        {
+            vibrationImage.sprite = vibrationOff;
+            isVibrationOff = true;
+        }
     }
 }
