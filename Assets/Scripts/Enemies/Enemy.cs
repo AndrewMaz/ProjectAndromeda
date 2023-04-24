@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITeleportable
 {
-    [SerializeField] private Animator animator;
-    [SerializeField] private float attackTime = 1f;
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected float attackTime = 1f;
 
-    private float attackTimer;
+    protected float attackTimer;
 
 
 

@@ -84,13 +84,17 @@
     <Compile Include="Assets\Scripts\Core\MovementY.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\MeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Boss\BossEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\MyInput.cs" />
     <Compile Include="Assets\Scripts\Runes\Rune.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Boss\BossAttack.cs" />
     <Compile Include="Assets\Scripts\Enemies\Projectile.cs" />
     <Compile Include="Assets\Scripts\Core\EnterCameraView.cs" />
     <Compile Include="Assets\Scripts\Animations\AttackCancel.cs" />
     <Compile Include="Assets\Scripts\Enemies\FlyingEnemyGroup.cs" />
     <Compile Include="Assets\Scripts\Runes\ExplosionHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SpriteChanger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
